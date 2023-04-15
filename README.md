@@ -22,8 +22,8 @@ https://github.com/SaraIes/CA4_SaraDidouh70932/blob/main/assets/task-manager.PNG
 It shows all the tasks and the degree parameter can be set to 'important' or 'unimportant' to filter the to-do items by their degree of importance. Example filtering only important ones:
 https://github.com/SaraIes/CA4_SaraDidouh70932/blob/main/assets/filter-important.PNG
 
-If no degree is specified, the app shows all to-do items sorted by their degree. The user can create and edit the tasks from this. They can also delete them once finished.
-
+If no degree is specified, the app shows all to-do items sorted by their degree. The user can create and edit the tasks from this. They can also delete them once finished. Confirmation message for deleting:
+https://github.com/SaraIes/CA4_SaraDidouh70932/blob/main/assets/delete-task-confirmation.PNG
 
 The sixth route /create provides a form to create a new to-do item. It inserts the new item into the database and redirects to the home page.
 https://github.com/SaraIes/CA4_SaraDidouh70932/blob/main/assets/create-task.PNG
