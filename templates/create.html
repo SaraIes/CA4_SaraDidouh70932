@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Task</title>
+</head>
+<body>
+    <h1>Create new task</h1>
+    <hr>
+
+    <!-- Form to add a new task item -->
+    <form method="POST" action="{{ url_for('create') }}">
+        <p>
+            <b><label for="content">Content</label></b>
+        </p>
+        <p>
+            <input type="text" name="content" required></input>
+        </p>
+
+        <p>
+            <b><label for="degree">Degree</label></b>
+        </p>
+        <p>
+            <input id="degree-0" name="degree" required type="radio" value="Important">
+            <label for="degree-0">Important</label>
+        </p>
+        <p>
+            <input id="degree-1" name="degree" required type="radio" value="Unimportant">
+            <label for="degree-1">Unimportant</label>
+        </p>
+
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>

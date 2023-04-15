@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <hr>
+
+    <!-- Form to edit an existing to do task -->
+    <form method="post">
+        <p>
+            <b><label for="content">Content</label></b>
+        </p>
+        <p>
+            <input type="text" name="content" value="{{ todo['content'] }}"></input>
+        </p>
+
+        <p>
+            <b><label for="degree">Degree</label></b>
+        </p>
+        <p>
+            <input id="degree-0" name="degree" required type="radio" value="Important"
+                {% if todo['degree'] == 'Important' %} checked {% endif %}>
+            <label for="degree-0">Important</label>
+        </p>
+        <p>
+            <input id="degree-1" name="degree" required type="radio" value="Unimportant"
+                {% if todo['degree'] == 'Unimportant' %} checked {% endif %}>
+            <label for="degree-1">Unimportant</label>
+        </p>
+        <button type="submit">Save</button>
+    </form>
+
+    <hr>
+
+    <form method="POST" action="{{ url_for('delete', id=todo['_id']) }}" >
+        <input type="submit" value="Delete"
+            onclick="return confirm('Are you sure you want to delete this entry?')">
+    </form>
+</body>
+</html>

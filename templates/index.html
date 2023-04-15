@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+</head>
+<body>
+    <br>
+     <!-- Logout button -->
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+
+    <!-- Title and button to create new task -->
+    <div class="header">
+        <h1>Task Manager</h1>     
+        <a class="create" href="{{ url_for('create') }}"><button>Create</button></a>
+    </div>
+    <hr>
+
+    <!-- Links to filter tasks by degree -->      
+    <p class="header"><a href="{{ url_for('index') }}"><button>All</button></a> | <a href="{{ url_for('index', degree='important') }}"><button>Important</button></a> | <a href="{{ url_for('index', degree='unimportant') }}"><button>Unimportant</button></a></p>
+
+    <!-- Display existing to do tasks -->
+    {% for todo in todos %}
+    <div class="todo">
+        <!-- Display name of the task and importance degree -->
+        <div><p>{{ todo['content'] }} <i>({{ todo['degree']}})</i></p></div>
+
+        <div>
+            <!-- Form to edit to do tasks -->
+            <form method="GET" action="{{ url_for('edit', id=todo['_id']) }}" >
+                <input type="submit" value="Edit">
+            </form>
+
+            &nbsp;
+
+            <!-- Form to delete to do tasks -->
+            <form method="POST" action="{{ url_for('delete', id=todo['_id']) }}" >
+                <input type="submit" value="Delete"
+                    onclick="return confirm('Are you sure you want to delete this entry?')"> <!-- Confirmation button, which will prompt the user to confirm before submitting the form. -->
+            </form>
+        </div>
+        
+    </div>
+    {% endfor %}
+
+    </div>
+
+    <!-- Add CSS styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .todo {
+            padding: 20px;
+            margin: 10px;
+            background-color: #eee;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .create {
+            margin-left: 30px;
+            cursor: auto;
+        }
+        p {
+            margin: 0;
+        }
+        form {
+            display: inline-block;
+        }
+    </style>
+</body>
+</html>

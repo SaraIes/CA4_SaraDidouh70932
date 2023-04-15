@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form method="post" action="{{ url_for('login') }}">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br><br>
+      <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account yet? <a href="{{ url_for('register') }}">Register here</a>.</p>
+  </body>
+    <!-- Add CSS styles -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+          margin-top: 2em;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        label {
+          font-weight: bold;
+          margin-bottom: 1em;
+          display: block;
+        }
+        input[type="text"],
+        input[type="password"] {
+          padding: 0.5em;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          width: 100%;
+          box-sizing: border-box;
+          margin-bottom: 1em;
+        }
+        input[type="submit"] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 0.5em 1em;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        input[type="submit"]:hover {
+          background-color: #3e8e41;
+        }
+        p {
+          margin-top: 2em;
+        }
+        a {
+          color: #4CAF50;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</html>
